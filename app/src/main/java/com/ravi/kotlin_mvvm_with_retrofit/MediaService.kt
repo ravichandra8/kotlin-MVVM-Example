@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface MediaService {
     @GET("photos")
-    suspend fun getPhotos():Response<List<PhotoResponse>>
+    suspend fun getPhotos():Response<MutableList<PhotoResponse>>
 }

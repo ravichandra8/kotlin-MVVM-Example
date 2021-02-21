@@ -9,7 +9,7 @@ class MediaRepository {
         println("threadname: snsRepository ${Thread.currentThread().name}")
     }
 
-    suspend fun getPhotoApi(): Response<List<PhotoResponse>> {
+    suspend fun getPhotoApi(): Response<MutableList<PhotoResponse>> {
         return RetrofitInstance.api.getPhotos()
     }
 }

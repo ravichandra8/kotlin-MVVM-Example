@@ -15,15 +15,16 @@ class PhotoViewModel(val mediaRepository: MediaRepository) : ViewModel() {
 
     var photosMutableLiveData: MutableStateFlow<Resource> = MutableStateFlow(Resource.Empty)
 
+
     open fun getPhotoInformation(){
         viewModelScope.launch(Dispatchers.IO) {
             photosMutableLiveData.value = Resource.ShowLoader
-            val response:Response<List<PhotoResponse>>  =mediaRepository.getPhotoApi()
+            val response:Response<MutableList<PhotoResponse>>  =mediaRepository.getPhotoApi()
             handlePhotoInformation(response)
         }
     }
 
-    private fun handlePhotoInformation(response: Response<List<PhotoResponse>>){
+    private fun handlePhotoInformation(response: Response<MutableList<PhotoResponse>>){
         val job: Job = viewModelScope.launch(Dispatchers.Main) {
             photosMutableLiveData.value = Resource.HideLoader
         }

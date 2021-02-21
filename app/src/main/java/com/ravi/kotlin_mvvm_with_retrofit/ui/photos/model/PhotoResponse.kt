@@ -18,4 +18,4 @@ data class PhotoResponse (
     val url:String,
     @SerializedName("thumbnailUrl")
     @Expose
-    val thumbnailUrl:String)
+    val thumbnailUrl:String, var isChecked :Boolean = false)
