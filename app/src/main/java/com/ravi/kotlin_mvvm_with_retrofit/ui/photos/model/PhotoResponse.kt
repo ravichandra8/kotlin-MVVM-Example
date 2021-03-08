@@ -18,4 +18,8 @@ data class PhotoResponse (
     val url:String,
     @SerializedName("thumbnailUrl")
     @Expose
-    val thumbnailUrl:String, var isChecked :Boolean = false)
+    val thumbnailUrl:String, var isChecked :Boolean = false){
+    override fun toString(): String = super.toString()
+    override fun equals(other: Any?): Boolean = super.equals(other)
+    override fun hashCode(): Int = super.hashCode()
+}
